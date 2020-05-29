@@ -21,9 +21,9 @@ setup(
 	name='irisvmpy',
 	version='0.0.1',
 	description='SVM classifier for iris data-set',
-	author='Michal Dyzma',
-	author_email='mdyzma@gmail.com',
-    url ='https://github.com/mdyzma/jenkins-python-test',
+	author='Amarnadh',
+	author_email='amar@gmail.com',
+    url ='https://github.com/amara401/python_repo',
     download_url='https://github.com/mdyzma/jenkins-python-test/archive/0.0.1.tar.gz',
 	license='MIT',
 	packages=find_packages(),
@@ -38,6 +38,7 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.6',
+	'Programming Language :: Python :: 3.8',
       ],
 	zip_safe=False
 )
