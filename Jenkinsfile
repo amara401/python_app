@@ -45,8 +45,8 @@ pipeline {
                     '''
                 echo "Test coverage"
                 // sh  ''' source activate ${BUILD_TAG}
-                   sh  ''' coverage run irisvmpy/iris.py 1 1 2 3
-                        python -m coverage xml -o reports/coverage.xml
+                //   sh  ''' coverage run irisvmpy/iris.py 1 1 2 3
+                   sh ''' python -m coverage xml -o reports/coverage.xml
                     '''
                 echo "Style check"
                 // sh  ''' source activate ${BUILD_TAG}
