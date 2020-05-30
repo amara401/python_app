@@ -37,20 +37,20 @@ pipeline {
         stage('Static code metrics') {
             steps {
                 echo "Raw metrics"
-                sh  ''' source activate ${BUILD_TAG}
-                        radon raw --json irisvmpy > raw_report.json
+                // sh  ''' source activate ${BUILD_TAG}
+                   sh ''' radon raw --json irisvmpy > raw_report.json
                         radon cc --json irisvmpy > cc_report.json
                         radon mi --json irisvmpy > mi_report.json
                         sloccount --duplicates --wide irisvmpy > sloccount.sc
                     '''
                 echo "Test coverage"
-                sh  ''' source activate ${BUILD_TAG}
-                        // # coverage run irisvmpy/iris.py 1 1 2 3
+                // sh  ''' source activate ${BUILD_TAG}
+                   sh  ''' coverage run irisvmpy/iris.py 1 1 2 3
                         python -m coverage xml -o reports/coverage.xml
                     '''
                 echo "Style check"
-                sh  ''' source activate ${BUILD_TAG}
-                        pylint irisvmpy || true
+                // sh  ''' source activate ${BUILD_TAG}
+                   sh ''' pylint irisvmpy || true
                     '''
             }
             post{
@@ -74,8 +74,8 @@ pipeline {
 
         stage('Unit tests') {
             steps {
-                sh  ''' source activate ${BUILD_TAG}
-                        python -m pytest --verbose --junit-xml reports/unit_tests.xml
+               // sh  ''' source activate ${BUILD_TAG}
+                  sh ''' python -m pytest --verbose --junit-xml reports/unit_tests.xml
                     '''
             }
             post {
@@ -88,8 +88,8 @@ pipeline {
 
         stage('Acceptance tests') {
             steps {
-                sh  ''' source activate ${BUILD_TAG}
-                        behave -f=formatters.cucumber_json:PrettyCucumberJSONFormatter -o ./reports/acceptance.json || true
+               // sh  ''' source activate ${BUILD_TAG}
+                  sh ''' behave -f=formatters.cucumber_json:PrettyCucumberJSONFormatter -o ./reports/acceptance.json || true
                     '''
             }
             post {
